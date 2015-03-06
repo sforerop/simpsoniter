@@ -17,7 +17,7 @@ import org.eclipse.jetty.servlet.ServletHolder;
 public class Main extends HttpServlet {
 
     public static String texto = "";
-
+    public Algoritmo alg = new Algoritmo();
     /**
      * Metodo que inicia el servlet
      * @param args
@@ -47,13 +47,16 @@ public class Main extends HttpServlet {
         PrintWriter pagina=resp.getWriter();
         resp.setContentType("text/html");
         String xvar = req.getParameter("xvar");        
-        String numSegvar = req.getParameter("numSegvar");
+        String pvar = req.getParameter("pvar");
         String dofvar = req.getParameter("dofvar");
-        App app = new App();        
-        App.calcularVariables(Double.parseDouble(xvar),Double.parseDouble(numSegvar),Double.parseDouble(dofvar));
-        App.calcularP();
+        alg.cargarDatos(Double.parseDouble(pvar), Double.parseDouble(dofvar), Double.parseDouble(xvar));
+        alg.calcularX();
+        
         PrintWriter out = resp.getWriter();
-        out.print("P =" + App.getP() +"\n");
+        out.print("P obtenido =" + alg.getValorP()+"\n");
+        out.print("X calculado =" + alg.getValorX() +"\n");
+        out.print("Error =" + alg.getError() +"\n");
+        
         
         
     }
@@ -79,7 +82,7 @@ public class Main extends HttpServlet {
                 +"Ingrese el valor de X :\n Datos: <input type=\"text\" name=\"xvar\">\n"
                 + "<br/>\n"
                 + "<br />\n"
-                +"Ingrese el numero de segmentos:\n Datos: <input type=\"text\" name=\"numSegvar\">\n"
+                +"Ingrese el valor de P:\n Datos: <input type=\"text\" name=\"pvar\">\n"
                 + "<br/>\n"
                 + "<br />\n"
                 +"Ingrese el valor de dof :\n Datos: <input type=\"text\" name=\"dofvar\">\n"
