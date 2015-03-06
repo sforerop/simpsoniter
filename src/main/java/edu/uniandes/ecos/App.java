@@ -31,7 +31,7 @@ public class App {
         numSeg = numSegvar;
         dof = dofvar;
         w = x/numSeg;
-        E = 0.00001;
+        E = 0.0001;
     }
     
     /**

@@ -44,7 +44,6 @@ public class Main extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        PrintWriter pagina=resp.getWriter();
         resp.setContentType("text/html");
         String xvar = req.getParameter("xvar");        
         String pvar = req.getParameter("pvar");

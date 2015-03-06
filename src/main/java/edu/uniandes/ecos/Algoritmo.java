@@ -7,11 +7,11 @@ package edu.uniandes.ecos;
 
 public class Algoritmo {
 
-    public static Double error = 0.00001;
+    public static Double error = 0.0001;
     private static Double valorD = 0.5;
-    public static Double valorX = 1.0;
-    public static Double valorDof = 6.0;
-    public static Double valorP = 0.20;
+    public static Double valorX = 0.0;
+    public static Double valorDof = 0.0;
+    public static Double valorP = 0.0;
     public static App app = new App();
     
 //     public static void main(String[] args) {
